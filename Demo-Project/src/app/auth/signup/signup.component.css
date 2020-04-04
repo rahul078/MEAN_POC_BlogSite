@@ -1,0 +1,12 @@
+.example-full-width {
+  width: 30%;
+}
+mat-form-field{
+  margin-right : 2rem;
+}
+@media only screen and (max-width: 600px){
+  .example-full-width {
+    width: 100%;
+  }
+
+}

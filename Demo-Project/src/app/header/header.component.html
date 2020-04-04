@@ -1,0 +1,23 @@
+<mat-toolbar color="primary">
+  <a routerLink="/">
+    My Posts
+  </a>
+  <span class = "spacing"></span>
+  <ul>
+    <li>
+      <a *ngIf="this.userAuthStatus" mat-button routerLinkActive="mat-accent" routerLink="/create">
+        Create Post
+      </a>
+    </li>
+    <li>
+      <a *ngIf="!this.userAuthStatus" mat-button routerLinkActive="mat-accent" routerLink="/auth/login">
+        Login
+      </a>
+    </li>
+    <li>
+      <button *ngIf="this.userAuthStatus" mat-button (click)="onLogout()">
+        Logout
+      </button>
+    </li>
+  </ul>
+</mat-toolbar>

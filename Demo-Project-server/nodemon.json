@@ -1,0 +1,6 @@
+{
+    "env": {
+        "MONGO_PWD" : "t3XeFf1fw7sp4OUi",
+        "JWT_KEY" : "a_very_long_secret_key_saved_in_server"
+    }
+}

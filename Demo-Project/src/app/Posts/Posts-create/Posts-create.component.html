@@ -1,0 +1,33 @@
+<form [formGroup]="form" (submit)="onSavePost()">
+  <mat-card id="card">
+    <div>
+      <mat-form-field class="example-full-width">
+        <mat-label>Write a Post header</mat-label>
+        <input matInput formControlName="header" required />
+        <mat-error *ngIf='this.form.get("header").invalid'>
+          Please enter a Post Title
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="example-full-width">
+        <mat-label>Write a Post Body</mat-label>
+        <textarea matInput formControlName="Content" required>
+          </textarea>
+        <mat-error *ngIf='this.form.get("Content").invalid'>
+          Please enter content for your post
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <button mat-stroked-button type="button" (click)="filePicker.click()">Upload image</button>
+      <input type="file" #filePicker style="display:none" (change)="onImageChanged($event)" />
+      <div class="image-preview" *ngIf='this.fileUrl!=null && this.fileUrl != "" && form.get("fileUrl").valid'>
+        <img [src]="fileUrl" [alt]='form.value.header' />
+      </div>
+    </div>
+    <div style="padding-top: 1%;">
+      <button mat-flat-button type="submit" color="accent">Save Post</button>
+    </div>
+  </mat-card>
+</form>

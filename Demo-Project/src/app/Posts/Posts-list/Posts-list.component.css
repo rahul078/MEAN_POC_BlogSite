@@ -1,0 +1,13 @@
+.image{
+  height : 144px;
+  max-width : 200px;
+}
+h2{
+  padding-top:1px;
+}
+mat-paginator{
+  margin-top:1rem;
+}
+mat-expansion-panel{
+  margin-top:1rem;
+}

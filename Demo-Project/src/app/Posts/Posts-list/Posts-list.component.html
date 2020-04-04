@@ -1,0 +1,19 @@
+<mat-accordion *ngIf="DisplayList.length > 0">
+  <mat-expansion-panel *ngFor="let post of DisplayList">
+    <mat-expansion-panel-header style="margin:auto">
+      <h2>
+        {{ post.header }}
+      </h2>
+    </mat-expansion-panel-header>
+    <p>{{post.Content}}</p>
+    <div>
+      <img class="image" [src]="post.imagePath" [alt]="post.id" />
+    </div>
+    <mat-action-row *ngIf="this.userAuthStatus && post.creator == this.userID">
+      <a mat-button color="primary" [routerLink]="['/edit',post.id]">EDIT</a>
+      <button mat-button color="warn" (click)="onDelete(post.id)">DELETE</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<mat-paginator [length]="totalPages" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="onPageChanged($event)"></mat-paginator>
